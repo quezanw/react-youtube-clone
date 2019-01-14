@@ -1,15 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { getTerm, fetchVideos } from '../actions' ;
+// import { fetchVideos } from '../actions';
+// import { Field, reduxForm } from 'redux-form';
 
 class SearchBar extends React.Component {
-  state = { term: '' };
+  // state = { term: '' }; this is saved in the store
 
   onInputChange = (event) => {
-    this.setState({ term: event.target.value });
+    this.props.getTerm(event.target.value);
   }
 
   onFormSubmit = event => {
     event.preventDefault();
-    this.props.onFormSubmit(this.state.term);
+    this.props.fetchVideos(this.props.term);
   }
   
   render() {
@@ -17,13 +21,13 @@ class SearchBar extends React.Component {
       <div className="search-bar ui segment">
         <form
           className="ui form" 
-          onSubmit={this.onFormSubmit}>
+          onSubmit={ this.onFormSubmit }>
           <div className="field">
             <label htmlFor="">Video Search</label>
             <input 
               type="text"
               className=""
-              value={this.state.term}
+              value={this.props.term}
               onChange={this.onInputChange}
             />
           </div>
@@ -34,6 +38,10 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+const mapStateToProps = (state) => {
+  return { term: state.term};
+}
+
+export default connect(mapStateToProps, {getTerm, fetchVideos})(SearchBar);
 
 

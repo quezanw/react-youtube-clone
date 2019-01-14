@@ -1,20 +1,9 @@
 import { combineReducers } from 'redux';
 
+import termReducer from './termReducer';
+import videosReducer from './videosReducer';
+import selectedVideoReducer from './selectVideoReducer';
 
-const termReducer = () => {
-  return { term: '' };
-}
-
-const videosReducer = () => {
-  return [];
-}
-
-const selectedVideoReducer = (selectedVideo=null, action) => {
-  if(action.type === 'VIDEO_SELECTED') {
-    return action.payload;
-  }
-  return selectedVideo;
-}
 
 export default combineReducers({
   term: termReducer,
