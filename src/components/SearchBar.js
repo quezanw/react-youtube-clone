@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getTerm, fetchVideos } from '../actions' ;
-// import { Field, reduxForm } from 'redux-form';
 
 class SearchBar extends React.Component {
-  // state = { term: '' }; this is saved in the store
-
+  
   onInputChange = (event) => {
     this.props.getTerm(event.target.value);
   }

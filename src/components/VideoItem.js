@@ -20,11 +20,9 @@ class VideoItem extends React.Component {
         <div className="content">
           <div className="header">{video.snippet.title}</div>
         </div>
-        
       </div>
     );
   }
 }
-
 
 export default connect(null, { selectVideo })(VideoItem);

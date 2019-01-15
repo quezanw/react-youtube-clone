@@ -2,17 +2,11 @@ import youtube from '../apis/youtube';
 // import _ from 'lodash';
 
 export const getTerm = term => {
-  // console.log(term);
   return {
     type: 'GET_TERM',
     payload: term
   }
 }
-
-// const response = await youtube.get('/search', {
-//   params: {
-//     q: term
-//   }
 
 export const selectVideo = video => {
   return {

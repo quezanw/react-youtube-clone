@@ -1,4 +1,3 @@
-
 export default (videos = [], action) => {
   switch(action.type) {
     case 'FETCH_VIDEOS':
