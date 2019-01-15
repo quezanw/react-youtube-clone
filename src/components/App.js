@@ -1,18 +1,19 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-// import VideoList from './VideoList';
-// import VideoDetail from './VideoDetail';
-// import youtube from '../apis/youtube';
+import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
+import { fetchVideos } from '../actions';
+import { connect } from 'react-redux';
 
 class App extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchVideos("React JS");
+  }
   // state = { 
   //   videos: [],
   //   selectedVideo: null
   // }; this is saved in the store 
-
-  // componentDidMount() {
-  //   this.onTermSubmit('React js');
-  // }
 
   // onTermSubmit = async term => {
   //   const response = await youtube.get('/search', {
@@ -31,7 +32,6 @@ class App extends React.Component {
   //   this.setState( {selectedVideo: video });
   // }
 
-
   render() {
     return (
       <div className="ui container">
@@ -39,13 +39,10 @@ class App extends React.Component {
         <div className="ui grid">
           <div className="ui row">
           <div className="eleven wide column">
-            {/* <VideoDetail video={this.state.selectedVideo} /> */}
+            <VideoDetail />
           </div>
           <div className="five wide column">
-            {/* <VideoList 
-              onVideoSelect={this.onVideoSelect} 
-              videos={this.state.videos}
-            /> */}
+            <VideoList />
           </div>
             
           </div>
@@ -57,4 +54,4 @@ class App extends React.Component {
 }
 
 
-export default App;
+export default connect(null, { fetchVideos })(App);

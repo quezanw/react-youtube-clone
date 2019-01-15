@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getTerm, fetchVideos } from '../actions' ;
-// import { fetchVideos } from '../actions';
 // import { Field, reduxForm } from 'redux-form';
 
 class SearchBar extends React.Component {
@@ -31,7 +30,6 @@ class SearchBar extends React.Component {
               onChange={this.onInputChange}
             />
           </div>
-
         </form>
       </div>
     );
